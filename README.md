@@ -1,11 +1,15 @@
-# Google Personal/Shared Drive Index [![](https://data.jsdelivr.com/v1/package/gh/ParveenBhadooOfficial/Bhadoo-Drive-Index/badge)](https://www.jsdelivr.com/package/gh/ParveenBhadooOfficial/Bhadoo-Drive-Index)
+# Google Personal/Shared Drive Index 
+
+[![](https://data.jsdelivr.com/v1/package/gh/ParveenBhadooOfficial/Bhadoo-Drive-Index/badge)](https://www.jsdelivr.com/package/gh/ParveenBhadooOfficial/Bhadoo-Drive-Index) [![](https://data.jsdelivr.com/v1/package/gh/ParveenBhadooOfficial/Google-Drive-Index/badge)](https://www.jsdelivr.com/package/gh/ParveenBhadooOfficial/Google-Drive-Index) [![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2FParveenBhadooOfficial%2FGoogle-Drive-Index&count_bg=%2379C83D&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=hits&edge_flat=false)](https://hits.seeyoufarm.com)
+
+## Full Whitelabel and Customizable Index | One of a kind
 
 * Supports Both My and Team/Shared Drives with Dark Mode.
-* Development Paused due to busy schedule.
+* Click https://generator.driveindex.ga to make yours or watch https://youtu.be/Ihk4Gm3DPvg.
 
-[![Screenshot](https://raw.githubusercontent.com/ParveenBhadooOfficial/Bhadoo-Drive-Index/master/images/beta-light-screenshot.png)](https://github.com/ParveenBhadooOfficial/Bhadoo-Drive-Index)
+[![Screenshot](https://raw.githubusercontent.com/ParveenBhadooOfficial/Bhadoo-Drive-Index/master/images/beta-light-screenshot.png)](https://youtu.be/Ihk4Gm3DPvg)
 
-[![Screenshot](https://raw.githubusercontent.com/ParveenBhadooOfficial/Bhadoo-Drive-Index/master/images/beta-dark-screenshot.png)](https://github.com/ParveenBhadooOfficial/Bhadoo-Drive-Index)
+[![Screenshot](https://raw.githubusercontent.com/ParveenBhadooOfficial/Bhadoo-Drive-Index/master/images/beta-dark-screenshot.png)](https://youtu.be/Ihk4Gm3DPvg)
 
 `Note: The Changes in your workers config can effect later due to cache. Use incognito mode everytime to open the worker URL to overcome that issue.`
 
@@ -21,7 +25,8 @@
 
 ## How to
 
-* Current Version `2.0.10`
+* Stable Release `2.0.15` on generator.driveindex.ga
+* Unstable Release `2.0.15-x` x here could be anything.
 * Beta Version (Latest) - [generator.driveindex.ga](https://generator.driveindex.ga) (Dark Theme Available)
 * If you want to deploy main drive leave the option ROOT as it is.
 * If you want to deploy your Team Drive/Shared Drive/Folder then copy the ID and replace it with ROOT.
@@ -37,39 +42,58 @@
 * Now paste the code you copied before.
 * Click on Save and Deploy.
 * Done. (May take time for some users due to new account or cache issues)
-* [Watch Video](https://youtu.be/v3qNwHAWVKs)
+* [Watch Video](https://youtu.be/Ihk4Gm3DPvg)
 
 ## Basic Config
 
 ````
-"roots": [{
-    "id": "root", // shared drive id or folder id
-    "name": "Cloud Zero", // name for drive
-    "user": "admin", // username for id pass
-    "pass": "admin", // password for id pass (works also if their is no username, keep blank if no auth is needed.
-    "protect_file_link": true // protects the direct links when true.
-}],
+    "roots": 
+	    [
+
+	    {
+	    "id": "",
+            "name": "Drive One",
+            "user": "",
+            "pass": "",
+            "protect_file_link": false
+            }
+
+            ],
 ````
 
 ## Multiple ID Config
 
+* Add this code for each drive. see cloudflare workers code for more info. (requires common sense)
+
 ````
-"roots": [{
-        "id": "root", // shared drive id or folder id
-        "name": "Cloud Zero", // name for drive
-        "user": "admin", // username for id pass
-        "pass": "admin", // password for id pass (works also if their is no username, keep blank if no auth is needed.
-        "protect_file_link": true // protects the direct links when true.
-    },
-    {
-        "id": "root", // shared drive id or folder id
-        "name": "Cloud Zero", // name for drive
-        "user": "admin", // username for id pass
-        "pass": "admin", // password for id pass (works also if their is no username, keep blank if no auth is needed.
-        "protect_file_link": true // protects the direct links when true.
-    }
-],
+            ,
+            {
+            "id": "",
+            "name": "Drive Two",
+            "user": ["user1", "user2"],
+            "pass": ["pass1", "pass2"],
+            "protect_file_link": false
+            }
 ````
+
+## Multiple Users
+
+* For single user
+
+````
+            "user": "yourusername",
+            "pass": "yourpassword",
+````
+
+* For multiple users (upto 5 users)
+
+````
+            "user": ["user1", "user2"],
+            "pass": ["pass1", "pass2"],
+````
+
+* where `user1:pass1` and `user2:pass2` are combinations.
+* if users adds `"user": ["", ""],` empty values but more than one empty value then the site will ask for authentication but user can enter without entering any data by clicking submit.
 
 ## Brand Customization and Dark Mode
 
@@ -84,7 +108,7 @@
 const uiConfig = {
 	"theme": "dark", // switch between themes, default set to dark, select from https://github.com/ParveenBhadooOfficial/Google-Drive-Index#themes
 	"dark_mode": true, // incase you're viewing wrong colors try switching this
-	"version": "2.0.10", // don't touch this one. get latest code using generator at https://github.com/ParveenBhadooOfficial/Bhadoo-Drive-Index
+	"version": "2.0.15", // don't touch this one. get latest code using generator at https://github.com/ParveenBhadooOfficial/Bhadoo-Drive-Index
 	"logo_image": true, // true if you're using image link in next option.
 	"logo_height": "", // only if logo_image is true
 	"logo_width": "100px", // only if logo_image is true
@@ -99,8 +123,9 @@ const uiConfig = {
         "disable_player": false, // Set this to true to hide audio and video players
 	"poster": "https://cdn.jsdelivr.net/gh/ParveenBhadooOfficial/Google-Drive-Index@2.0.10/images/poster.jpg", // Video poster URL or see Readme to how to load from Drive
 	"audioposter": "https://cdn.jsdelivr.net/gh/ParveenBhadooOfficial/Google-Drive-Index@2.0.10/images/music.jpg", // Video poster URL or see Readme to how to load from Drive
-	"captions": "subtitles.srt", // Subtitles Link or file name which is in the folder same as video.
 	"jsdelivr_cdn_src": "https://cdn.jsdelivr.net/gh/ParveenBhadooOfficial/Google-Drive-Index", // If Project is Forked, then enter your Github repo
+	"render_head_md": true, // Render Head.md
+	"render_readme_md": true, // Render Readme.md
 	"plyr_io_version": "3.6.4" // Change plyr.io version in future when needed.
 }
 ````
@@ -109,34 +134,38 @@ const uiConfig = {
 
 * There are 22 Themes from [bootswatch](https://github.com/thomaspark/bootswatch) where `light` is official [Bootstrap](https://getbootstrap.com) Theme and `dark` is darkly from bootswatch.
 * You can check Theme from [bootswatch.com](https://bootswatch.com) before selecting.
-* To Change theme, first generate the code, paste in Cloudflare Workers and then select one theme code from below and paste it in line 139 of worker script.
+* To Change theme, first generate the code, paste in Cloudflare Workers and then select one theme code from below and paste it in line 66 of worker script.
 
 | Themes    |         |         |         |        |          |
 |-----------|---------|---------|---------|--------|----------|
 | cerulean  | cosmo   | cyborg  | dark    | flatly | journal  |
 | litera    | lumen   | lux     | materia | minty  | pulse    |
 | sandstone | simplex | sketchy | slate   | solar  | spacelab |
-| superhero | united  | yeti    | light   |        |          |
-|           |         |         |         |        |          |        
+| superhero | united  | yeti    | light   |        |          |    
 
 ## Audio and Video
 
 * Poster for Video is added as default.
-* If you wish to keep one poster add image link in Config.
-* You can also set poster name as eg. poster.jpg or screenshot.png where this file should be inside the same folder as the video file is.
+* If you wish to keep one poster, add image link in Config.
+* You can also set poster link as eg. poster.jpg or screenshot.png where this file should be inside the same folder as the video file is.
 
 ## Search Limitations
 
 * Search only works if you use Shared Drive ID or root.
 * Search won't work or the bar won't appear if you're using Folder ID inside from root or Shared Drive.
 
+## Making your own repo, editing and making changes
+
+* Fork this Repo or Import.
+* Make your changes in `app.js` and `workers-beta.js` files.
+* Make a new release in Github.
+* Change jsDelivr CDN URL and version code in `workers-beta.js`.
+* Deploy in Cloudflare Workers.
+
 ## Upcoming Changes
 
-* Clear Path to Navigate inside Previous Folders (currenty shows inside menu).
 * Icons from other Index for better view.
-* Adding Links to other Indexes.
 * Adding More Features from other Indexes.
-* Click to Copy Download Button
 
 ## Other Indexes
 
@@ -158,3 +187,10 @@ const uiConfig = {
 ## Support this Project
 
 [![Support](https://cdn.buymeacoffee.com/buttons/v2/default-white.png)](https://www.buymeacoffee.com/bhadoo)
+
+### Donate by Crpto
+
+* ETH `0xaf25cdc7967213172a745453a64e8a0b59686729`
+* BTC `3BgSznxLB5u4WiuVERb1dKWeTqSSwK9NPW`
+* BAT `0xaf25cdc7967213172a745453a64e8a0b59686729`
+
